@@ -1,0 +1,31 @@
+1. Modifier
+Think of it like a “UI toolkit” you attach to a component.
+Used to decorate (background, border), layout (padding, size), or interact (click, scroll).
+
+2. Arrangement (Row / Column)
+Controls how children are placed in a Row or Column.
+Examples:
+Arrangement.Start → items at the start
+Arrangement.SpaceBetween → space between items
+Arrangement.Center → all in center
+
+3. Alignment
+Controls where items sit inside a container (Row, Column, Box).
+Examples:
+Alignment.CenterHorizontally
+Alignment.BottomEnd
+
+4. Size
+fillMaxSize() → fills available space
+fillMaxWidth() → fills full width
+wrapContentSize() → fits content
+weight() → distribute space proportionally
+
+5. Styling
+background(Color.Red) → set background
+border(2.dp, Color.Black) → add border
+clip(RoundedCornerShape(12.dp)) → round corners
+Combine for Card-like effects.
+
+
+// it has much more function explore them.
