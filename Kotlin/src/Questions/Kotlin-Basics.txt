@@ -1,0 +1,30 @@
+Q1 — What is the difference between val and var in Kotlin?
+val → Immutable (like final in Java). Once assigned, value cannot be reassigned.
+var → Mutable. Value can be reassigned.
+
+Q2 — Write a Kotlin snippet that prints numbers from 1 to 10 using a loop.
+for(i in 1 until 10)
+	println(i)
+
+Q3 — Suppose n = 13. Write the logic (in Kotlin) to check if it’s prime.
+fun main() {
+    val n = 13
+    var isPrime = true
+
+    if (n < 2) {
+        isPrime = false
+    } else {
+        for (i in 2..n / 2) {
+            if (n % i == 0) {
+                isPrime = false
+                break
+            }
+        }
+    }
+
+    if (isPrime) {
+        println("$n is prime")
+    } else {
+        println("$n is not prime")
+    }
+}

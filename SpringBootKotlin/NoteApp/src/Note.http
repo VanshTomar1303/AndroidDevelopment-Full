@@ -1,5 +1,23 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
+### GET notes
+GET http://10.202.165.234:8080/notes
 
-###
+### POST create notes
+POST http://10.202.165.234:8080/notes
+Content-Type: application/json
+
+{
+  "title": "Vegta",
+  "content": "Only A Failure Abandons His Principles And Pride."
+}
+
+### PUT
+PUT http://10.202.165.234:8080/notes/1
+Content-Type: application/json
+
+{
+  "title": "Gabimaru",
+  "content": "Appearance doesn't matter at all."
+}
+
+### DELETE
+DELETE http://10.202.165.234:8080/notes/1

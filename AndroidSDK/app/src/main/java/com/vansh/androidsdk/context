@@ -1,0 +1,42 @@
+📌 1. What is Context?
+Context is an interface to global information about an application environment.
+It’s like a handle to the system: it lets you access resources, app-level services, and system features.
+Every Android component (Activity, Service, Application) has a Context.
+
+📌 2. Why Context is Important
+You need Context to:
+1. Access resources
+val color = context.getColor(R.color.white)
+val text = context.getString(R.string.app_name)
+
+2. Launch activities
+val intent = Intent(context, ProfileActivity::class.java)
+context.startActivity(intent)
+
+3. Access system services
+val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+4. Inflate layouts
+val view = LayoutInflater.from(context).inflate(R.layout.item_view, parent, false)
+
+5. Show Toast
+Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show()
+
+📌 3. Types of Context
+| Context Type            | Description                                                          | Example              |
+| ----------------------- | -------------------------------------------------------------------- | -------------------- |
+| **Application Context** | Tied to the **lifetime of the app**. Use for **long-lived objects**. | `applicationContext` |
+| **Activity Context**    | Tied to **Activity lifecycle**. Use for **UI-related operations**.   | `this` in Activity   |
+| **Service Context**     | Tied to **Service lifecycle**.                                       | `this` in Service    |
+
+
+📌 4. Context vs Activity
+Activity is a subclass of Context.
+So every Activity is a Context, but not every Context is an Activity.
+Use Activity context when you need to tie something to a UI.
+Use Application context for things that live longer than an Activity.
+
+📌 5. Common Mistakes with Context
+Passing Activity context to singleton objects → memory leak.
+Using application context for UI components like Dialogs or Toast (sometimes works, sometimes not).
+Storing View references in non-UI classes.

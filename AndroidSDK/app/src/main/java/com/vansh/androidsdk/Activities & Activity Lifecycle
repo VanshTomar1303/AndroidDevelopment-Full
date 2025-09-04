@@ -1,0 +1,61 @@
+📌 1. What is an Activity?
+An Activity is a single screen in an Android app.
+Think of it like a page in a mobile app.
+Entry point of app.
+Example: Login screen, Home screen, Profile screen → each is an Activity.
+
+Key points:
+Activities are UI components.
+Each Activity is a subclass of android.app.Activity.
+You can have multiple activities in an app, and you navigate between them using Intents.
+
+📌 2. Activity Lifecycle
+Android manages activities with a lifecycle to control memory, performance, and user experience.
+Here’s the Activity Lifecycle diagram (text version):
+
+onCreate() → onStart() → onResume()
+          ↑           ↓
+       onPause() → onStop()
+          ↑
+       onRestart()
+          ↓
+       onDestroy()
+
+
+📌 3. Lifecycle Methods Explained
+✨onCreate(Bundle savedInstanceState)
+Called once when Activity is first created.
+Initialize UI, variables, layouts, adapters.
+Example: setContentView(R.layout.activity_main)
+
+✨onStart()
+Called when Activity becomes visible but not yet interactive.
+Example: Prepare UI elements, animations.
+
+✨onResume()
+Activity is in the foreground and user can interact.
+Resume paused tasks (like animations, video playback).
+
+✨onPause()
+Activity is partially obscured or losing focus.
+Save data, pause animations, stop heavy tasks.
+Should execute fast to avoid app lag.
+
+✨onStop()
+Activity is no longer visible.
+Release resources, unregister receivers, save persistent data.
+
+✨onRestart()
+Called if the Activity is coming back to the foreground after stopping.
+Example: Return to Activity from another Activity.
+
+✨onDestroy()
+Activity is being destroyed.
+Clean up resources (threads, database connections, observers).
+
+
+✨Quick Notes
+Foreground Activity → visible & interactive → onResume()
+Background Activity → not visible → onStop()
+Partially Visible Activity → partially covered → onPause()
+Always save critical data in onPause() or onStop().

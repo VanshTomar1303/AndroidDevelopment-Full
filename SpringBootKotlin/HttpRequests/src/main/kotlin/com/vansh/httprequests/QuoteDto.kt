@@ -1,4 +1,7 @@
 package com.vansh.httprequests
 
-class QuoteDto {
-}
+data class QuoteDto(
+    val id: Long,
+    val content: String,
+    val author: String
+)

@@ -1,0 +1,35 @@
+📌 1. Tasks in Android
+A Task is a collection of activities that users interact with when performing a certain job.
+Think of it like a stack of screens related to what the user is doing.
+Activities in a task are stored in a Back Stack (LIFO order) — Last In, First Out.
+
+Example:
+User opens HomeActivity → Task created → HomeActivity pushed to Back Stack
+User navigates to ProfileActivity → pushed to Back Stack
+Press back → ProfileActivity popped, HomeActivity shown
+
+📌 2. Back Stack
+Back Stack is like a stack of plates: last activity opened is on top.
+Pressing the Back button pops the top activity from the stack.
+Android manages Back Stack automatically, but you can control it with flags and launch modes.
+
+Important Notes:
+Default: Every activity is added to the Back Stack.
+Use finish() to remove current activity manually.
+You can manipulate the stack with Intent flags (like FLAG_ACTIVITY_CLEAR_TOP).
+
+📌 3. Launch Modes
+Launch modes define how a new activity is launched and how it interacts with the Back Stack.
+You can define them in AndroidManifest.xml with android:launchMode or via Intent flags.
+✨ 4 Main Launch Modes
+| Mode                   | Description                                                                                   | Example Scenario                                      |
+| ---------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| **standard** (default) | New instance is created every time                                                            | Opening multiple detail screens                       |
+| **singleTop**          | If activity on top of stack → reuse it, else create new                                       | Notifications → opens same activity if already on top |
+| **singleTask**         | Only **one instance in a task**. If exists → reused and other activities above it are cleared | Main dashboard activity                               |
+| **singleInstance**     | Only **one instance in the system**, task has only this activity                              | Special activity like a phone call screen             |
+
+📌 5. Quick Summary
+Task: Collection of activities user interacts with.
+Back Stack: LIFO stack of activities → handles Back button behavior.
+Launch Modes: Control how activities are instantiated and reused.

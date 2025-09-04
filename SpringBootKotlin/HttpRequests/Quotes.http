@@ -1,5 +1,28 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
+### GET quotes
+GET http://localhost:8080/quotes
 
-###
+### GET quotes for a specific query
+GET http://localhost:8080/quotes?q=i
+
+### POST add quotes
+POST http://localhost:8080/quotes
+Content-Type: application/json
+
+{
+"id": 2,
+"content": "Push past your limit's.",
+"author": "Yami"
+}
+
+### PUT update quote
+PUT http://localhost:8080/quotes
+Content-Type: application/json
+
+{
+  "id": 2,
+  "content": "Push past your limit's.",
+  "author": "Yami Sukihero"
+}
+
+### DELETE delete quote
+DELETE http://localhost:8080/quotes/2
